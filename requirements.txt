@@ -1,3 +1,4 @@
 pandas
 requests
 plotly
+-e git+https://github.com/Wang-Bioinformatics-Lab/GNPSDataPackage.git
