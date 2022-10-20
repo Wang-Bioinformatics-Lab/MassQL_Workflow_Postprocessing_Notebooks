@@ -1,0 +1,18 @@
+
+version: '3'
+services:
+  wanglab-jupyter-massql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wanglab-jupyter-massql
+    volumes:
+      - .:/home/jovyan/work:rw
+    ports:
+    - "9685:9000"
+    restart: unless-stopped
+    command: jupyter lab --ip='*' --port=9000 --no-browser --NotebookApp.token='${LOGINPASSWORD:-PASSWORD}' --allow-root
+    deploy:
+     resources:
+       limits:
+         memory: 16000M
